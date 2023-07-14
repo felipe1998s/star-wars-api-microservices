@@ -1,7 +1,8 @@
-const {response} = require("../utils");
-const film = require("../data");
+const { response } = require("../utils");
+const axios = require("axios");
 
-module.exports = async (req,res)=>{
-    const newFilm = await film.create();
-    response(res,200,newFilm);
+module.exports = async(req,res)=>{
+    const newFilm = req.body;
+    const createNewFilm = (await axios.post("http://localhost:8004/Film/create",newFilm)).data;
+    response(res,200,createNewFilm);
 }

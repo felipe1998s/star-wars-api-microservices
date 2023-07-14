@@ -1,6 +1,8 @@
-const character = require("../data");
+const { response } = require("../utils");
+const axios = require("axios");
 
 module.exports = async(req,res)=>{
-    const newCharacter = await character.create();
-    res.status(200).json(newCharacter)
+    const newCharacter  = req.body;
+    const createNewCharacter = (await axios.post("http://localhost:8004/Character/create", newCharacter)).data; 
+    response(res,200,createNewCharacter);
 }

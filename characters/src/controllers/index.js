@@ -1,5 +1,6 @@
 const { catchedAsync }= require("../utils")
 module.exports = {
     getCharacters : catchedAsync(require("./getCharacters")),
-    createCharacters : catchedAsync( require("./createCharacters"))
+    getCharacterById : catchedAsync(require("./getCharacterById")),
+    createCharacters : catchedAsync(require("./createCharacters")),
 } 
